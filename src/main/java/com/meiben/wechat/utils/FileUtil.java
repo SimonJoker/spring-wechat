@@ -43,8 +43,6 @@ public class FileUtil {
             int lineNum = 0;
             while (s != null) {
                 lineNum++;
-                System.out.println("lineNum---:"+lineNum);
-                System.out.println("s---:"+s);
                 if (lineNum == 1){
                     accessToken.setToken(s);
                 }

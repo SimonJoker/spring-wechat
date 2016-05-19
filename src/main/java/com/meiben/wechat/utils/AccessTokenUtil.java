@@ -40,7 +40,7 @@ public class AccessTokenUtil {
                 //设置定时器expires_in - 5 秒
                 try {
                     timer.schedule(new MyTask(rootPath)
-                            , 0, (token.getExpiresIn()-5)*1000);
+                            , (token.getExpiresIn()-5)*1000, (token.getExpiresIn()-5)*1000);
                 } catch (Exception e) {
                     setAccessTokenFlag(rootPath, token);
                     e.printStackTrace();
@@ -69,12 +69,9 @@ public class AccessTokenUtil {
      */
     public static AccessToken getAccessToken(String rootPath){
         File file = new File(rootPath+"/"+ACCESS_TOKEN_NAME);
-        System.out.println("flag token util 2---:"+rootPath+"/"+ACCESS_TOKEN_NAME);
         if (file.exists()){
             AccessToken token = FileUtil.getTokenFromDir(file);
             if (token.getFlag() == 0){
-                System.out.println("flag token util ---:"+token.getToken());
-                System.out.println("flag token util ---:"+token.getFlag());
                 return token;
             }else {
                 return requestAccessToken(rootPath);
@@ -110,6 +107,7 @@ public class AccessTokenUtil {
 
         @Override
         public void run() {
+            System.out.println("mytask");
             requestAccessToken(rootPath);
         }
     }
