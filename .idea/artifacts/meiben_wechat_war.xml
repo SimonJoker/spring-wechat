@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="meiben-wechat:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="meiben-wechat.war">
+      <element id="artifact" artifact-name="meiben-wechat:war exploded" />
+    </root>
+  </artifact>
+</component>
