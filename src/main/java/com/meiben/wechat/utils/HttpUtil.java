@@ -25,21 +25,31 @@ public class HttpUtil {
      * @throws ParseException
      * @throws IOException
      */
-    public static JSONObject doGetStr(String url) throws ParseException, IOException {
-        CloseableHttpClient client = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(url);
+    public static JSONObject doGetStr(String url) throws IOException {
         JSONObject jsonObject = null;
-        CloseableHttpResponse httpResponse = client.execute(httpGet);
         try {
-            HttpEntity entity = httpResponse.getEntity();
-            if(entity != null){
-                String result = EntityUtils.toString(entity, "UTF-8");
-                jsonObject = JSONObject.fromObject(result);
+            CloseableHttpClient client = HttpClients.createDefault();
+            HttpGet httpGet = null;
+            httpGet = new HttpGet(url);
+            jsonObject = null;
+            CloseableHttpResponse httpResponse = client.execute(httpGet);
+            try {
+                HttpEntity entity = httpResponse.getEntity();
+                if(entity != null){
+                    String result = EntityUtils.toString(entity, "UTF-8");
+                    jsonObject = JSONObject.fromObject(result);
+                }
+                //确认消耗掉response
+                EntityUtils.consume(entity);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                httpResponse.close();
             }
-            //确认消耗掉response
-            EntityUtils.consume(entity);
-        } finally {
-            httpResponse.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (org.apache.http.ParseException e) {
+            e.printStackTrace();
         }
         return jsonObject;
     }

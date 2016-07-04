@@ -32,6 +32,7 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
           <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.8.3" />
           <element id="library" level="project" name="Maven: org.apache.geronimo.bundles:commons-httpclient:3.1_2" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

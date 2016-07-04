@@ -95,6 +95,13 @@
             <artifactId>commons-httpclient</artifactId>
             <version>3.1_2</version>
         </dependency>
+
+        <!--mysql-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>

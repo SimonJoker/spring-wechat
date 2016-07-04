@@ -1,5 +1,6 @@
 package com.meiben.wechat.utils;
 
+import com.meiben.wechat.common.api.WxURLs;
 import com.meiben.wechat.domain.AccessToken;
 import net.sf.json.JSONObject;
 
@@ -17,9 +18,10 @@ import static com.meiben.wechat.utils.HttpUtil.doGetStr;
 public class AccessTokenUtil {
     private static final String APPID = "wx3f58d80c641ec81d";
     private static final String APPSECRET = "d4624c36b6795d1d99dcf0547af5443d";
-    private static final String ACCESS_TOKEN_URL =
-            "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
     private static final String ACCESS_TOKEN_NAME = "accesstoken.txt";
+
+    private static final String TOKEN_PATH
+            = AccessTokenUtil.class.getClassLoader().getResource("").getFile();
     /**
      * 获取AccessToken
      * @return
@@ -29,7 +31,7 @@ public class AccessTokenUtil {
     public static AccessToken requestAccessToken(String rootPath) {
         AccessToken token = new AccessToken();
         try {
-            String url = ACCESS_TOKEN_URL.replace("APPID", APPID).replace("APPSECRET", APPSECRET);
+            String url = WxURLs.ACCESS_TOKEN_URL.replace("APPID", APPID).replace("APPSECRET", APPSECRET);
             System.out.println("a");
             JSONObject jsonObject = doGetStr(url);
             if(jsonObject!=null){
@@ -46,8 +48,6 @@ public class AccessTokenUtil {
                     e.printStackTrace();
                 }
             }
-        } catch (ParseException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,6 +63,24 @@ public class AccessTokenUtil {
         token.setFlag(1);
         FileUtil.writeFile(token.toString(), rootPath+"/"+ACCESS_TOKEN_NAME);
     }
+
+    /**
+     * @return AccessToken 值
+     */
+    public static AccessToken getAccessToken(){
+        File file = new File(TOKEN_PATH+"/"+ACCESS_TOKEN_NAME);
+        if (file.exists()){
+            AccessToken token = FileUtil.getTokenFromDir(file);
+            if (token.getFlag() == 0){
+                return token;
+            }else {
+                return requestAccessToken(TOKEN_PATH);
+            }
+        }else {
+            return requestAccessToken(TOKEN_PATH);
+        }
+    }
+
     /**
      * @param rootPath 项目路径
      * @return AccessToken 值
