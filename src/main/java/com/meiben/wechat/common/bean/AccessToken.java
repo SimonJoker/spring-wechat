@@ -1,4 +1,4 @@
-package com.meiben.wechat.domain;
+package com.meiben.wechat.common.bean;
 
 /**
  * Created by joker on 2016/1/13.

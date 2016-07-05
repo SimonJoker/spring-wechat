@@ -1,6 +1,6 @@
-package com.meiben.wechat.domain.menu;
+package com.meiben.wechat.common.bean;
 
-public class ViewButton extends Button{
+public class ViewButton extends Button {
 	private String url;
 
 	public String getUrl() {

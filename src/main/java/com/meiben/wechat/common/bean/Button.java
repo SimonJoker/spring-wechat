@@ -1,4 +1,4 @@
-package com.meiben.wechat.domain.menu;
+package com.meiben.wechat.common.bean;
 
 public class Button {
 	private String type;

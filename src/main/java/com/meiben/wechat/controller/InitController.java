@@ -1,18 +1,15 @@
 package com.meiben.wechat.controller;
 
-import com.meiben.wechat.WxSetting.WxMenuSetting;
-import com.meiben.wechat.logic.WxMsgLogic;
+import com.meiben.wechat.logic.WxMsgListener;
 import com.meiben.wechat.logic.WxSettingLogic;
-import com.meiben.wechat.utils.InitWechatUtil;
-import com.meiben.wechat.utils.XmlUtil;
+import com.meiben.wechat.common.utils.*;
+import com.meiben.wechat.mapper.UserMapper;
 import net.sf.json.JSONObject;
 import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +24,7 @@ public class InitController {
     WxSettingLogic wxSettingLogic;
 
     @Autowired
-    WxMsgLogic wxMsgLogic;
+    WxMsgListener wxMsgListener;
 
     /**
      * @param signature
@@ -40,6 +37,7 @@ public class InitController {
     @ResponseBody
     public String initWeChatRequest(@RequestParam String signature, @RequestParam String echostr
             , @RequestParam String timestamp, @RequestParam String nonce) {
+        System.out.println("request---: "+signature+"\n"+echostr+"\n"+timestamp+"\n"+nonce);
         if (InitWechatUtil.checkSignatrue(signature, timestamp, nonce)) {
             return echostr;
         }
@@ -49,18 +47,16 @@ public class InitController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String msgAction(@RequestBody String body) {
-        System.out.println("body --->"+body);
         String callback = null;
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<String, String>();
         if (body != null && !"".equals(body)){
             try {
                 map = XmlUtil.xmlToMap(body);
-                callback = wxMsgLogic.getWxMpMessageRouter().excute(map);
+                callback = wxMsgListener.getWxMpMessageRouter().excute(map);
             } catch (DocumentException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("callback ---->"+callback);
         return "error";
     }
 

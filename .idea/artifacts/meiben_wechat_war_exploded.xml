@@ -32,7 +32,13 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
           <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.8.3" />
           <element id="library" level="project" name="Maven: org.apache.geronimo.bundles:commons-httpclient:3.1_2" />
-          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.0" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.0" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:0.2.9" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.1.1" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.8" />
         </element>
       </element>
       <element id="directory" name="META-INF">

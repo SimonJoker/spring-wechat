@@ -1,7 +1,7 @@
-package com.meiben.wechat.utils;
+package com.meiben.wechat.common.utils;
 
 import com.meiben.wechat.common.api.WxURLs;
-import com.meiben.wechat.domain.AccessToken;
+import com.meiben.wechat.common.bean.AccessToken;
 import net.sf.json.JSONObject;
 
 import java.io.File;
@@ -10,18 +10,21 @@ import java.text.ParseException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.meiben.wechat.utils.HttpUtil.doGetStr;
 
 /**
  * Created by joker on 2016/5/19.
  */
 public class AccessTokenUtil {
-    private static final String APPID = "wx3f58d80c641ec81d";
-    private static final String APPSECRET = "d4624c36b6795d1d99dcf0547af5443d";
-    private static final String ACCESS_TOKEN_NAME = "accesstoken.txt";
+    public static final String APPID = "wx3f58d80c641ec81d";
+    public static final String APPSECRET = "d4624c36b6795d1d99dcf0547af5443d";
+    public static final String ACCESS_TOKEN_NAME = "accesstoken.txt";
 
-    private static final String TOKEN_PATH
+    public static final String TOKEN_PATH
             = AccessTokenUtil.class.getClassLoader().getResource("").getFile();
+
+    public static AccessToken requestAccessToken() {
+        return requestAccessToken(TOKEN_PATH);
+    }
     /**
      * 获取AccessToken
      * @return
@@ -33,7 +36,7 @@ public class AccessTokenUtil {
         try {
             String url = WxURLs.ACCESS_TOKEN_URL.replace("APPID", APPID).replace("APPSECRET", APPSECRET);
             System.out.println("a");
-            JSONObject jsonObject = doGetStr(url);
+            JSONObject jsonObject = HttpUtil.doGetStr(url);
             if(jsonObject!=null){
                 token.setToken(jsonObject.getString("access_token"));
                 token.setExpiresIn(jsonObject.getInt("expires_in"));

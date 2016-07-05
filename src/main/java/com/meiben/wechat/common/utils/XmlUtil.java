@@ -1,4 +1,4 @@
-package com.meiben.wechat.utils;
+package com.meiben.wechat.common.utils;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;

@@ -7,7 +7,7 @@
 
        <bean id="wxMpMessageRouter" class="com.meiben.wechat.common.api.WxMpMessageRouter"></bean>
 
-       <bean id="wxMsgLogic" class="com.meiben.wechat.logic.WxMsgLogic">
+       <bean id="wxMsgLogic" class="com.meiben.wechat.logic.WxMsgListener">
               <constructor-arg  name="wxMpMessageRouter" ref="wxMpMessageRouter"/>
        </bean>
 </beans>

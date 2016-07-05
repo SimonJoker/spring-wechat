@@ -1,6 +1,6 @@
-package com.meiben.wechat.domain.menu;
+package com.meiben.wechat.common.bean;
 
-public class ClickButton extends Button{
+public class ClickButton extends Button {
 	private String key;
 
 	public String getKey() {

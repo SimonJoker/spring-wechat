@@ -1,16 +1,9 @@
 package com.meiben.wechat;
 
-import com.meiben.wechat.WxSetting.WxMenuSetting;
-import com.meiben.wechat.domain.AccessToken;
-import com.meiben.wechat.utils.AccessTokenUtil;
-import com.meiben.wechat.utils.HttpUtil;
-import net.sf.json.JSONObject;
+import com.meiben.wechat.common.utils.HttpUtil;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.text.ParseException;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@WebAppConfiguration

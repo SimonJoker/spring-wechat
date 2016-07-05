@@ -1,11 +1,9 @@
 package com.meiben.wechat;
 
-import com.meiben.wechat.domain.AccessToken;
-import com.meiben.wechat.domain.menu.Button;
-import com.meiben.wechat.domain.menu.ClickButton;
-import com.meiben.wechat.domain.menu.Menu;
-import com.meiben.wechat.domain.menu.ViewButton;
-import com.meiben.wechat.utils.AccessTokenUtil;
+import com.meiben.wechat.common.bean.Button;
+import com.meiben.wechat.common.bean.ClickButton;
+import com.meiben.wechat.common.bean.Menu;
+import com.meiben.wechat.common.bean.ViewButton;
 import net.sf.json.JSONObject;
 import org.junit.Test;
 

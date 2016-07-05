@@ -1,6 +1,7 @@
-package com.meiben.wechat.utils;
+package com.meiben.wechat.common.utils;
 
-import com.meiben.wechat.domain.AccessToken;
+
+import com.meiben.wechat.common.bean.AccessToken;
 
 import java.io.*;
 

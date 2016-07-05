@@ -1,6 +1,6 @@
 package com.meiben.wechat.logic;
 
-import com.meiben.wechat.WxSetting.WxMenuSetting;
+import com.meiben.wechat.common.api.WxMenuSetting;
 import net.sf.json.JSONObject;
 
 import java.io.IOException;

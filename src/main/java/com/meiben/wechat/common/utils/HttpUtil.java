@@ -1,4 +1,4 @@
-package com.meiben.wechat.utils;
+package com.meiben.wechat.common.utils;
 
 import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;
