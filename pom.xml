@@ -69,6 +69,7 @@
             <version>2.4</version>
             <classifier>jdk15</classifier>
         </dependency>
+        <!--xml to class-->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
@@ -121,6 +122,12 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.1.1</version>
+        </dependency>
+        <!--redis-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.8.1</version>
         </dependency>
 
         <!--减少代码冗余(getter setter方法等)-->

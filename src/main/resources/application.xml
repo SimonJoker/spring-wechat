@@ -3,11 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       <bean id="wxSettingLogic" class="com.meiben.wechat.logic.WxSettingLogic"></bean>
+       <bean id="wxConfInfo" class="com.meiben.wechat.common.api.WxConfInfo">
+              <property name="appid" value="wxd393b7763cbaa275"/>
+              <property name="appsecret" value="5c09dc9b75e02ac3345534fc7d83081e"/>
+              <property name="token" value="Wo0LIS9CUKXGwrKr"/>
+              <property name="encodingAESKey" value="c0uajuxkxIDA0UNOb9MzwT0zqfcmw08sqz0PtzwIOD0"/>
+       </bean>
 
-       <bean id="wxMpMessageRouter" class="com.meiben.wechat.common.api.WxMpMessageRouter"></bean>
+       <bean id="wxSettingLogic" class="com.meiben.wechat.logic.WxSettingLogic"/>
+
+       <bean id="wxMpMessageRouter" class="com.meiben.wechat.common.api.WxMpMessageRouter"/>
 
        <bean id="wxMsgLogic" class="com.meiben.wechat.logic.WxMsgListener">
               <constructor-arg  name="wxMpMessageRouter" ref="wxMpMessageRouter"/>
        </bean>
+
+       <bean id="wxServiceLogic" class="com.meiben.wechat.logic.WxServiceLogic"/>
 </beans>

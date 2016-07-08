@@ -53,6 +53,7 @@ public class InitController {
             try {
                 map = XmlUtil.xmlToMap(body);
                 callback = wxMsgListener.getWxMpMessageRouter().excute(map);
+                return callback;
             } catch (DocumentException e) {
                 e.printStackTrace();
             }

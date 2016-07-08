@@ -23,10 +23,10 @@ public class WxMsgListener {
                 .rule()
                 .type(WxConsts.XML_MSG_EVENT).event(WxConsts.EVT_CLICK).eventKey("11")
                 .handler(new WxEventClickKeyHandler()).end()
-                .rule()
-                .type(WxConsts.XML_MSG_EVENT).event(WxConsts.EVT_SUBSCRIBE).handler(new WxSubscribeHandler()).end()
-                .rule()
-                .type(WxConsts.XML_MSG_EVENT).event(WxConsts.EVT_UNSUBSCRIBE).handler(new WxUnsubscribeHandler()).end()
+//                .rule()
+//                .type(WxConsts.XML_MSG_EVENT).event(WxConsts.EVT_SUBSCRIBE).handler(new WxSubscribeHandler()).end()
+//                .rule()
+//                .type(WxConsts.XML_MSG_EVENT).event(WxConsts.EVT_UNSUBSCRIBE).handler(new WxUnsubscribeHandler()).end()
                 .rule()
                 .type(WxConsts.XML_MSG_TEXT).handler(new WxTextMsgHandler()).end();
 

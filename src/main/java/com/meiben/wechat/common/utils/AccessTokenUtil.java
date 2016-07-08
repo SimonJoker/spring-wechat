@@ -15,8 +15,8 @@ import java.util.TimerTask;
  * Created by joker on 2016/5/19.
  */
 public class AccessTokenUtil {
-    public static final String APPID = "wx3f58d80c641ec81d";
-    public static final String APPSECRET = "d4624c36b6795d1d99dcf0547af5443d";
+    public static final String APPID = "wxd393b7763cbaa275";
+    public static final String APPSECRET = "5c09dc9b75e02ac3345534fc7d83081e";
     public static final String ACCESS_TOKEN_NAME = "accesstoken.txt";
 
     public static final String TOKEN_PATH

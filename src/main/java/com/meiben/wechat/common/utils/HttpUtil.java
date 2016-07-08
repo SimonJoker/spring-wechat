@@ -30,9 +30,18 @@ public class HttpUtil {
         try {
             CloseableHttpClient client = HttpClients.createDefault();
             HttpGet httpGet = null;
-            httpGet = new HttpGet(url);
+            try {
+                httpGet = new HttpGet(url);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             jsonObject = null;
-            CloseableHttpResponse httpResponse = client.execute(httpGet);
+            CloseableHttpResponse httpResponse = null;
+            try {
+                httpResponse = client.execute(httpGet);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             try {
                 HttpEntity entity = httpResponse.getEntity();
                 if(entity != null){

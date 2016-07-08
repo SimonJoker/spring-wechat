@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by joker on 2016/4/26.
  */
-public interface UserMapper extends Mapper{
+public interface UserMapper {
 
     @Select("SELECT * FROM wx_user WHERE openid = #{openid}")
     public User queryByOpenid(@Param("openid") String openid);

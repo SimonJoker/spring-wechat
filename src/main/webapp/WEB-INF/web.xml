@@ -8,7 +8,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				classpath:/db-config/mysql-jdbc-conf.xml,
+				classpath:/db-config/redis-conf.xml,
 				classpath:/*.xml,
 				/WEB-INF/mvc-dispatcher-servlet.xml
 			</param-value>
