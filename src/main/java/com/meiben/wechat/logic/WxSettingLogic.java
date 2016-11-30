@@ -26,11 +26,31 @@ public class WxSettingLogic {
         try {
             int result =WxMenuSetting.createMenu(menu.toString());
             if (result == 0){
-                callback.replace("result", 200);
+                callback.element("result", 200);
             }
         } catch (ParseException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return callback;
+    }
+
+    /**
+     * 获取当前公众号配置信息接口
+     * @return {JsonObject}
+     */
+    public JSONObject wxGetCurrentSefMenu(){
+        JSONObject callback = new JSONObject();
+        callback.put("api", "selfmenuinfo");
+        callback.put("result", 302);
+
+        try {
+            JSONObject data = WxMenuSetting.getCurrentSelfMenuInfo();
+            callback.element("result", 200);
+            callback.element("data", data);
+        } catch (IOException e) {
+            System.out.println("failed!get current menu info --:");
             e.printStackTrace();
         }
         return callback;

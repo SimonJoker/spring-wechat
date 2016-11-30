@@ -33,4 +33,18 @@ public class WxMenuSetting {
         }
         return result;
     }
+
+    /**
+     * 获取当前微信公众号自定义菜单配置信息
+     * @return
+     * @throws IOException
+     */
+    public static JSONObject getCurrentSelfMenuInfo() throws IOException {
+        AccessToken token = AccessTokenUtil.getAccessToken();
+        String url = WxURLs.GET_CURRENT_SELFMENU_INFO.replace("ACCESS_TOKEN", token.getToken());
+
+        JSONObject jsonObject = HttpUtil.doGetStr(url);
+        System.out.println("get current self menu info ---:"+jsonObject);
+        return jsonObject;
+    }
 }

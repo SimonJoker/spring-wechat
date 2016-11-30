@@ -26,6 +26,10 @@ public class WxURLs {
     public static final String DELETE_MENU_URL =
             "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=ACCESS_TOKEN";
 
+    /*获取最定义菜单配置接口*/
+    public static final String GET_CURRENT_SELFMENU_INFO =
+            "https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=ACCESS_TOKEN";
+
     /*通过code换取网页授权access_token*/
     public static final String CODE_ACCESS_TOKEN_URL =
             "https://api.weixin.qq.com/sns/oauth2/access_token?appid=";

@@ -41,6 +41,7 @@ public class InitController {
         if (InitWechatUtil.checkSignatrue(signature, timestamp, nonce)) {
             return echostr;
         }
+
         return "error";
     }
 

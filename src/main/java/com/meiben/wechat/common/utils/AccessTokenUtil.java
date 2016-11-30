@@ -15,8 +15,9 @@ import java.util.TimerTask;
  * Created by joker on 2016/5/19.
  */
 public class AccessTokenUtil {
-    public static final String APPID = "wxd393b7763cbaa275";
-    public static final String APPSECRET = "5c09dc9b75e02ac3345534fc7d83081e";
+
+    public static final String APPID = "wx3f58d80c641ec81d";
+    public static final String APPSECRET = "d4624c36b6795d1d99dcf0547af5443d";
     public static final String ACCESS_TOKEN_NAME = "accesstoken.txt";
 
     public static final String TOKEN_PATH
@@ -46,6 +47,8 @@ public class AccessTokenUtil {
                 try {
                     timer.schedule(new MyTask(rootPath)
                             , (token.getExpiresIn()-5)*1000, (token.getExpiresIn()-5)*1000);
+//                    timer.schedule(new MyTask(rootPath)
+//                            , (token.getExpiresIn()-5)*1000);
                 } catch (Exception e) {
                     setAccessTokenFlag(rootPath, token);
                     e.printStackTrace();
@@ -60,7 +63,7 @@ public class AccessTokenUtil {
     /**
      * @param rootPath
      * @param token
-     * 刷新token失败时标记文件中的token已过期
+     * 刷新token失败时标记文件中的token已过期， flag 为1 表示token 失效
      */
     public static void setAccessTokenFlag(String rootPath, AccessToken token){
         token.setFlag(1);
@@ -74,7 +77,8 @@ public class AccessTokenUtil {
         File file = new File(TOKEN_PATH+"/"+ACCESS_TOKEN_NAME);
         if (file.exists()){
             AccessToken token = FileUtil.getTokenFromDir(file);
-            if (token.getFlag() == 0){
+            System.out.println("get access token --:"+ token.toString());
+            if (token.getFlag() == 0){ //token 过期
                 return token;
             }else {
                 return requestAccessToken(TOKEN_PATH);
@@ -114,7 +118,7 @@ public class AccessTokenUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return (flag == 0 ? true : false);
+        return (flag == 1 ? true : false);
     }
 
     /**

@@ -17,7 +17,7 @@ public class WxUserDao {
     public WxUserDao(String pass, int dbIndex, JedisPool jedisPool) {
         System.out.println("pool --->"+jedisPool);
         jedis = jedisPool.getResource();
-        jedis.auth(pass);
+//        jedis.auth(pass);
         jedis.select(dbIndex);
     }
 

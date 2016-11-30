@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
        <bean id="wxConfInfo" class="com.meiben.wechat.common.api.WxConfInfo">
-              <property name="appid" value="wxd393b7763cbaa275"/>
-              <property name="appsecret" value="5c09dc9b75e02ac3345534fc7d83081e"/>
+              <property name="appid" value="wx3f58d80c641ec81d"/>
+              <property name="appsecret" value="d4624c36b6795d1d99dcf0547af5443d"/>
               <property name="token" value="Wo0LIS9CUKXGwrKr"/>
               <property name="encodingAESKey" value="c0uajuxkxIDA0UNOb9MzwT0zqfcmw08sqz0PtzwIOD0"/>
        </bean>
