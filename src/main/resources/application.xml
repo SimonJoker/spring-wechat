@@ -3,12 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       <bean id="wxConfInfo" class="com.meiben.wechat.common.api.WxConfInfo">
-              <property name="appid" value="wx3f58d80c641ec81d"/>
-              <property name="appsecret" value="d4624c36b6795d1d99dcf0547af5443d"/>
-              <property name="token" value="Wo0LIS9CUKXGwrKr"/>
-              <property name="encodingAESKey" value="c0uajuxkxIDA0UNOb9MzwT0zqfcmw08sqz0PtzwIOD0"/>
-       </bean>
+       <!--为保证appid secret安全，把微信设置参数改在java文件中写成静态变量-->
+       <!--<bean id="wxConfInfo" class="com.meiben.wechat.common.api.WxConfInfo">-->
+              <!--<property name="appid" value="your appid"/>-->
+              <!--<property name="appsecret" value="your app secret"/>-->
+              <!--<property name="token" value="your token"/>-->
+              <!--<property name="encodingAESKey" value="c0uajuxkxIDA0UNOb9MzwT0zqfcmw08sqz0PtzwIOD0"/>-->
+       <!--</bean>-->
 
        <bean id="wxSettingLogic" class="com.meiben.wechat.logic.WxSettingLogic"/>
 

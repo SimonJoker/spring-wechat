@@ -1,8 +1,11 @@
 package com.meiben.wechat.common.utils;
 
+import com.meiben.wechat.common.api.WxConfInfo;
+import com.meiben.wechat.common.api.WxSetting;
 import com.meiben.wechat.common.api.WxURLs;
 import com.meiben.wechat.common.bean.AccessToken;
 import net.sf.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,8 +19,8 @@ import java.util.TimerTask;
  */
 public class AccessTokenUtil {
 
-    public static final String APPID = "wx3f58d80c641ec81d";
-    public static final String APPSECRET = "d4624c36b6795d1d99dcf0547af5443d";
+    public static final String APPID = WxSetting.appid;
+    public static final String APPSECRET = WxSetting.appsecret;
     public static final String ACCESS_TOKEN_NAME = "accesstoken.txt";
 
     public static final String TOKEN_PATH
